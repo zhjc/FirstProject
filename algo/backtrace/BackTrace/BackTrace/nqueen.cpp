@@ -26,7 +26,7 @@ void nQueen()
     int x[NUM_OF_QUEEN+1]; // x[k]是当前列
     int nResult = 0;
 
-    x[1] = 0;
+    x[0] = x[1] = 0;
 
     while (k>0)
     {

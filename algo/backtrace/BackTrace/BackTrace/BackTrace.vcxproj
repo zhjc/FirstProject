@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nqueen.cpp" />
+    <ClCompile Include="sumofsub.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h" />
