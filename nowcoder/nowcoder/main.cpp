@@ -3,7 +3,7 @@
 #include <ctime>
 
 #include <iostream>
-
+#include <iomanip>
 #include "head.h"
 
 #include<set>
@@ -95,6 +95,7 @@ vector<int> prim(int m, int n)
     return output;
 }
 
+// 百度套卷-度度熊回家
 int GetDis() {
     int N;
     cin >> N;
@@ -140,6 +141,134 @@ int GetDis() {
     return 0;
 }
 
+struct Point3{
+    char color;
+    int x,y,z;
+
+    Point3(char c, int x_, int y_, int z_)
+        : color(c)
+        , x(x_)
+        , y(y_)
+        , z(z_) {}
+};
+
+double distance(const Point3& a, const Point3& b) {
+    int dis_x = a.x - b.x;
+    int dis_y = a.y - b.y;
+    int dis_z = a.z - b.z;
+
+    return sqrt(dis_x*dis_x + dis_y*dis_y + dis_z*dis_z);
+}
+
+bool isTriangle(double a, double b, double c) {
+    return (a + b > c) && (a + c > b) && (b + c > a);
+}
+
+double areaOfTriangle(double a, double b, double c) {
+    double p = (a + b + c) / 2;
+    return sqrt(p*(p - a)*(p - b)*(p - c));
+}
+
+bool isSameColor(const Point3& p1, const Point3& p2, const Point3& p3) {
+    return p1.color == p2.color && p2.color == p3.color;
+}
+
+bool isDiffColor(const Point3& p1, const Point3& p2, const Point3& p3) {
+    return p1.color != p2.color&&p2.color != p3.color&&p3.color != p1.color;
+}
+
+int getMaxTriangle()
+{
+    int N;
+    cin >> N;
+
+    char color;
+    int x;
+    int y;
+    int z;
+
+    vector<Point3> vecPoints;
+
+    for (int i=0; i<N; ++i)
+    {
+        cin >> color >> x >> y >> z;
+        vecPoints.push_back(Point3(color, x, y, z));
+    }
+
+    int len = (int)vecPoints.size();
+
+    double max_area = -1.0;
+    double temp_area = 0.0;
+
+    for (int i=0; i<len; ++i)
+    {
+        for (int j=i+1; j<len; ++j)
+        {
+            for (int k=j+1; k<len; ++k)
+            {
+                if (isSameColor(vecPoints[i], vecPoints[j], vecPoints[k]))
+                {
+                    double dis_i_j = distance(vecPoints[i], vecPoints[j]);
+                    double dis_j_k = distance(vecPoints[j], vecPoints[k]);
+                    double dis_k_i = distance(vecPoints[k], vecPoints[i]);
+
+                    if (isTriangle(dis_i_j, dis_j_k, dis_k_i))
+                    {
+                        temp_area = areaOfTriangle(dis_i_j, dis_j_k, dis_k_i);
+                        if (temp_area > max_area)
+                        {
+                            max_area = temp_area;
+                        }
+                    }
+                }
+
+                if (isDiffColor(vecPoints[i], vecPoints[j], vecPoints[k]))
+                {
+                    double dis_i_j = distance(vecPoints[i], vecPoints[j]);
+                    double dis_j_k = distance(vecPoints[j], vecPoints[k]);
+                    double dis_k_i = distance(vecPoints[k], vecPoints[i]);
+
+                    if (isTriangle(dis_i_j, dis_j_k, dis_k_i))
+                    {
+                        temp_area = areaOfTriangle(dis_i_j, dis_j_k, dis_k_i);
+                        if (temp_area > max_area)
+                        {
+                            max_area = temp_area;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    cout << fixed << setprecision(5) << max_area << endl;
+
+    return 0;
+}
+
+/*
+度度熊有一个N个数的数组，他想将数组从大到小排好序，但是萌萌的度度熊只会下面这个操作：
+任取数组中的一个数然后将它放置在数组的最后一个位置。
+问最少操作多少次可以使得数组从小到大有序？
+输入描述:
+
+首先输入一个正整数N，接下来的一行输入N个整数。(N <= 50, 每个数的绝对值小于等于1000)
+
+
+输出描述:
+
+输出一个整数表示最少的操作次数。
+
+输入例子:
+
+4
+19 7 8 25
+
+输出例子:
+
+2
+*/
+
 int main(int argc, char* argv[])
 {
     //vector<int> vec_output = knuth(20, 5);
@@ -161,6 +290,7 @@ int main(int argc, char* argv[])
     perm(list, 0, 3);*/
 
     //getThird();
-    GetDis();
+    //GetDis();
+    getMaxTriangle();
     return 0;
 }
