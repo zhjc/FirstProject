@@ -269,6 +269,141 @@ int getMaxTriangle()
 2
 */
 
+// 一个数组,找出可以分为多少个非递增或非递减的子数列
+int GetSortNum() {
+    const int N = 9;
+    //cin >> N;
+
+    int numArr[N] = {1,2,3,1,2,3,1,2,3};
+
+    int dst_cnt = 0;
+
+    int direc = 0;
+    for (int i = 0; i < N - 1; ++i) 
+    {
+        if (numArr[i] < numArr[i + 1]) 
+        {
+            if (direc == 0) 
+            {
+                direc = 1;
+            }
+            else if (direc == 1)
+            {
+
+            } 
+            else 
+            {
+                // direc = -1
+                direc = 0;
+                dst_cnt++;
+            }
+        }
+        else if (numArr[i] > numArr[i + 1]) 
+        {
+            if (direc == 0) 
+            {
+                direc = -1;
+            }
+            else if (direc == 1)
+            {
+                direc = 0;
+                dst_cnt++;
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+
+        }
+
+    }
+
+
+    cout << dst_cnt + 1 << endl;
+
+    //delete[] numArr;
+
+    return 0;
+}
+
+bool cmp_m(int a, int b) {
+    return a > b;
+}
+// 测例通过60%
+int GetMaxLevel() {
+    const int N = 2;
+    //cin >> N;
+
+    // 3*N个选手,分成N队,每队3人,队伍的水平为队内第二高的水平,求分配后队伍水平最大的和值
+    int numArr[3*N] = { 5,2,8,5,1,5 };
+
+    int max_level = 0;
+
+    vector<int> vecNum(numArr, numArr + 3 * N);
+
+    sort(vecNum.begin(), vecNum.end(), cmp_m);
+
+    for (int i=1; i<2*N; i=i+2)
+    {
+        max_level += vecNum[i];
+    }
+
+    cout << max_level << endl;
+
+    return 0;
+}
+// 测例通过90%
+int GetMaxSubLen() {
+    const int N = 6;
+    //cin >> N;
+
+    // 子序列中,最多只调整一个数,使其为严格递增序列,找出最长的子序列
+    // 输入6  \n  7,2,3,1,5,6   输出5
+    int numArr[N] = { 7,2,3,1,5,6 };
+
+    int max_len = -1;
+
+    for (int i = 1; i < N - 1; ++i)
+    {
+        if (numArr[i - 1] > numArr[i] && numArr[i]<numArr[i + 1] && numArr[i + 1]>numArr[i - 1])
+        {
+            int cur_i = i;
+            // backword
+            int k = i;
+            for (; k<N-1; ++k)
+            {
+                if (numArr[k + 1] <= numArr[k])
+                {
+                    break;
+                }
+            }
+
+            // forward
+            int j = i - 1;
+            for (; j>0; --j)
+            {
+                if (numArr[j-1] >= numArr[j])
+                {
+                    break;
+                }
+            }
+
+            if (k - j + 1 > max_len)
+            {
+                max_len = k - j + 1;
+            }
+        }
+
+    }
+
+    cout << max_len << endl;
+
+    return 0;
+}
+
 int main(int argc, char* argv[])
 {
     //vector<int> vec_output = knuth(20, 5);
@@ -291,6 +426,8 @@ int main(int argc, char* argv[])
 
     //getThird();
     //GetDis();
-    getMaxTriangle();
+    //getMaxTriangle();
+    //GetMaxLevel();
+    GetMaxSubLen();
     return 0;
 }
