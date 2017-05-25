@@ -6,6 +6,8 @@
 #include <iomanip>
 #include "head.h"
 
+#include "usual_problem.h"
+
 #include<set>
 using namespace std;
 
@@ -428,6 +430,7 @@ int main(int argc, char* argv[])
     //GetDis();
     //getMaxTriangle();
     //GetMaxLevel();
-    GetMaxSubLen();
+    //GetMaxSubLen();
+    test_pointer();
     return 0;
 }

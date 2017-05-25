@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="dijkstra.h" />
     <ClInclude Include="head.h" />
+    <ClInclude Include="usual_problem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
