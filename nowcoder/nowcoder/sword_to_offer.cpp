@@ -118,6 +118,24 @@ public:
         }
     }
 
+    vector<int> multiply(const vector<int>& A) {
+        // violence method
+        vector<int> vecres(A.size());
+
+        for (int i = 0; i < A.size(); ++i) {
+            vecres[i] = 1;
+            for (int j = 0; j < A.size(); ++j) {
+                if (i == j) {
+                    continue;
+                }
+
+                vecres[i] *= A[j];
+            }
+        }
+
+        return vecres;
+    }
+
     vector<vector<int> > Print(TreeNode* pRoot) {
         vector<vector<int> > vecres;
         if (pRoot == NULL) {
