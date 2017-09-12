@@ -274,6 +274,119 @@ public:
         return NULL;
     }
 
+    static string PMN_int2str(int a)
+    {
+        ostringstream os;
+        os << a;
+        return os.str();
+    }
+
+    static bool PMN_cmp(int a, int b)
+    {
+        string sa = PMN_int2str(a);
+        string sb = PMN_int2str(b);
+        return sa + sb < sb + sa;
+    }
+
+    // 33
+    string PrintMinNumber(vector<int> numbers)
+    {
+        string strres;
+
+        sort(numbers.begin(), numbers.end(), PMN_cmp);
+
+        for (size_t i = 0; i < numbers.size(); ++i) {
+            strres += PMN_int2str(numbers[i]);
+        }
+
+        return strres;
+    }
+
+    // 34 ³óÊý
+    bool isUglyNum(int n)
+    {
+        while (n % 2 == 0) {
+            n = n / 2;
+        }
+        while (n % 3 == 0) {
+            n = n / 3;
+        }
+        while (n % 5 == 0) {
+            n = n / 5;
+        }
+
+        return n == 1 ? true : false;
+    }
+
+    int Min3(int num1, int num2, int num3)
+    {
+        int aux = num1 < num2 ? num1 : num2;
+        return aux < num3 ? aux : num3;
+    }
+
+    int GetUglyNumber_Solution(int index)
+    {
+        int ret = 0;
+
+        vector<int> vecugly({ 1,2,3,4,5 });
+
+        if (index < 0) {
+            return -1;
+        } 
+        else if (index < 5) {
+            return vecugly[index];
+        }
+        else {
+            int founded = 5;
+            int t2 = 2;
+            int t3 = 1;
+            int t5 = 1;
+            while (founded < index) {
+                int min_ugly = Min3(vecugly[t2]*2, vecugly[t3]*3, vecugly[t5]*5);
+                vecugly.push_back(min_ugly);
+
+                while (vecugly[t2]*2 <= vecugly.back()) {
+                    t2++;
+                }
+
+                while (vecugly[t3] * 3 <= vecugly.back()) {
+                    t3++;
+                }
+
+                while (vecugly[t5] * 5 <= vecugly.back()) {
+                    t5++;
+                }
+
+                founded++;
+            }
+
+            return vecugly[index - 1];
+        }
+
+        return ret;
+    }
+
+    int FirstNotRepeatingChar(string str)
+    {
+        int nums[26 * 2];
+        int nums_tag[26 * 2] = { 0 };
+        for (int i = 0; i < str.size(); ++i) {
+            nums_tag[str[i] - 'A']++;
+            nums[str[i] - 'A'] = i;
+        }
+
+        int temp = INT_MAX;
+        for (int i = 0; i < 26 * 2; ++i) {
+            if (nums_tag[i]==1) {
+                if (nums[i]<temp) {
+                    temp = nums[i];
+                }
+            }
+        }
+
+        return temp;
+    }
+
     bool hasPath(char* matrix, int rows, int cols, char* str) {
         if (matrix==NULL || rows<=0 || cols<=0) {
             return false;
@@ -409,7 +522,7 @@ int test_offer() {
     //int num1, num2;
     //sol.FindNumsAppearOnce(vector<int>({ 4,6,1,1,1,1 }), &num1, &num2);
     //cout << num1 << " " << num2 << endl;
-
+    /*
     ListNode* t1 = new ListNode(1);
     ListNode* t2 = new ListNode(1);
     ListNode* t31 = new ListNode(1);
@@ -425,7 +538,16 @@ int test_offer() {
     t41->next = t42;
     t42->next = t5;
 
-    sol.deleteDuplication(t1);
+    sol.deleteDuplication(t1);*/
+
+    // 33
+    //vector<int> vecn({ 3,32,321 });
+    //sol.PrintMinNumber(vecn);
+
+    // 34
+    //sol.GetUglyNumber_Solution(7);
+
+    sol.FirstNotRepeatingChar("aabDcdedjDejdss");
 
     return 0;
 }

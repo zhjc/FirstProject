@@ -147,12 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="classic_algorithm.cpp" />
     <ClCompile Include="lib_functions.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="netease_2018.cpp" />
     <ClCompile Include="proj.cpp" />
     <ClCompile Include="sword_to_offer.cpp" />
-    <ClCompile Include="zhaoshang_bank.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_tree.h" />
