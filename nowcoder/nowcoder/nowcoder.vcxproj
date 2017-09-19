@@ -150,10 +150,13 @@
     <ClCompile Include="classic_algorithm.cpp" />
     <ClCompile Include="lib_functions.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="meittuan.cpp" />
+    <ClCompile Include="multi_thread.cpp" />
     <ClCompile Include="netease_2018.cpp" />
     <ClCompile Include="proj.cpp" />
     <ClCompile Include="sort_algos.cpp" />
     <ClCompile Include="sword_to_offer.cpp" />
+    <ClCompile Include="tecent.cpp" />
     <ClCompile Include="zhaoshang_bank.cpp" />
   </ItemGroup>
   <ItemGroup>

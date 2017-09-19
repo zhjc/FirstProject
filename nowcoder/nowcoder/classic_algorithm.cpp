@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include <bitset>
 #include <vector>
 #include <map>
 
@@ -118,13 +119,63 @@ public:
 
     // 归并排序
 
+    // 实现大整数相乘
+    string BigInt_multiply(string add1, string add2) {
+        string res;
+
+        return res;
+    }
+
+    void TestStdOut() {
+        bool flag = false;
+        int num = 024;
+        cout /*<< boolalpha*/ << flag << endl;
+        cout << num << endl;
+        unsigned char ch = 0227;
+        //cout << ~ch << endl;
+        //BinaryRecursion(4);
+        //BinaryOrdnary(128);
+        //cout << endl;
+        cout << bitset<sizeof(int) * 8>(num) << endl;
+    }
+
+    void BinaryRecursion(int n) {
+        int a = n % 2; // 取余
+        n = n << 2; //除2
+        if (n != 0) {
+            BinaryRecursion(n);
+        }
+
+        cout << a; // 逆序输出
+    }
+
+    void BinaryOrdnary(int n) {
+        bitset<32> b;
+        //vector<int> vecbin;
+        int temp = n;
+        int count = 0;
+        while (temp) {
+            //vecbin.push_back(temp % 2);
+            b[count++] = temp % 2;
+            temp >>= 1;
+        }
+        for (int i = count - 1; i >= 0; --i) {
+            cout << b[i];
+        }
+        //for (int i = vecbin.size()-1; i >= 0; --i) {
+        //    cout << vecbin[i];
+        //}
+    }
 };
 
 int test_classic_algorithm()
 {
     ClassicAlgorithm ca;
     //ca.josephus(5, 2);
-    string str = "1a33";
-    ca.StrToInt(str);
+    //string str = "1a33";
+    //ca.StrToInt(str);
+
+    ca.TestStdOut();
+
     return 0;
 }

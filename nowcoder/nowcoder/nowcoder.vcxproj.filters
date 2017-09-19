@@ -53,5 +53,14 @@
     <ClCompile Include="sort_algos.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="tecent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="meittuan.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_thread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
