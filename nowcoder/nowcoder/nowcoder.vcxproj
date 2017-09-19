@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="classic_algorithm.cpp" />
+    <ClCompile Include="didichuxing.cpp" />
     <ClCompile Include="lib_functions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="meittuan.cpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_tree.h" />
+    <ClInclude Include="commons.h" />
     <ClInclude Include="dijkstra.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="usual_problem.h" />

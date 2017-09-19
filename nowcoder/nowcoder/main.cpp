@@ -11,6 +11,7 @@ int test_tecent();
 int test_classic_algorithm();
 int test_meituan();
 int test_multi_thread();
+int test_didichuxing();
 
 int main(int argc, char* argv[])
 {
@@ -30,6 +31,8 @@ int main(int argc, char* argv[])
 
     // test_netease_2018();
     // test_zhaoshang_bank();
+
+    // test_didichuxing();
 
     test_multi_thread();
 

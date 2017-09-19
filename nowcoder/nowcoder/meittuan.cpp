@@ -70,35 +70,6 @@ public:
         return 0;
     }
 
-    int didi() {
-        int n, b;
-        cin >> n >> b;
-
-        bool nflag = false;
-        if (n<0) {
-            nflag = true;
-            n = -n;
-        }
-
-        vector<int> vecarr;
-        int temp = n;
-        while (temp) {
-            vecarr.push_back(temp%b);
-            temp /= b;
-        }
-
-        string arr[16] = { "0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F" };
-        if (nflag) {
-            cout << "-";
-        }
-        for (int i = vecarr.size() - 1; i >= 0; --i) {
-            cout << arr[vecarr[i]];
-        }
-        cout << endl;
-
-        return 0;
-    }
-
     // hk
     int GetLevel(string& name, string& ps) {
         if (ps.size()<8 || name == ps) {

@@ -15,17 +15,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dijkstra.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="head.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="usual_problem.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="commons.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="head.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="binary_tree.h">
-      <Filter>源文件</Filter>
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dijkstra.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +63,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="multi_thread.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="didichuxing.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
