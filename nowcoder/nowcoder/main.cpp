@@ -12,6 +12,7 @@ int test_classic_algorithm();
 int test_meituan();
 int test_multi_thread();
 int test_didichuxing();
+int test_stl();
 
 int main(int argc, char* argv[])
 {
