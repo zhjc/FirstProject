@@ -71,5 +71,8 @@
     <ClCompile Include="dynamic_programming.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="stl_test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

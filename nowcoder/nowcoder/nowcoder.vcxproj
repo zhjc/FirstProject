@@ -157,6 +157,7 @@
     <ClCompile Include="netease_2018.cpp" />
     <ClCompile Include="proj.cpp" />
     <ClCompile Include="sort_algos.cpp" />
+    <ClCompile Include="stl_test.cpp" />
     <ClCompile Include="sword_to_offer.cpp" />
     <ClCompile Include="tecent.cpp" />
     <ClCompile Include="zhaoshang_bank.cpp" />
