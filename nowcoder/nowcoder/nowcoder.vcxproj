@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="classic_algorithm.cpp" />
+    <ClCompile Include="ctrip.cpp" />
     <ClCompile Include="didichuxing.cpp" />
     <ClCompile Include="dynamic_programming.cpp" />
     <ClCompile Include="lib_functions.cpp" />

@@ -74,5 +74,8 @@
     <ClCompile Include="stl_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ctrip.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
