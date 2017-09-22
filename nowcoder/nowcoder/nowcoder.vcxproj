@@ -151,6 +151,7 @@
     <ClCompile Include="ctrip.cpp" />
     <ClCompile Include="didichuxing.cpp" />
     <ClCompile Include="dynamic_programming.cpp" />
+    <ClCompile Include="leet_code.cpp" />
     <ClCompile Include="lib_functions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="meittuan.cpp" />

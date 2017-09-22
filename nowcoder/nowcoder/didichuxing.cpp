@@ -89,14 +89,38 @@ public:
     string BigIntMultiply2(string& num1, string& num2) {
         return "";
     }
+
+    // test 
+    int test1() {
+        int n;
+        cin >> n;
+        vector<int> vecn(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> vecn[i];
+        }
+
+        int sum = 0;
+        for (int i = 0; i < n; ++i) {
+            if (sum + vecn[i] > sum) {
+                sum += vecn[i];
+            }
+        }
+
+        cout << sum << endl;
+
+        return 0;
+    }
 };
 
 int test_didichuxing() {
     Didichuxing di;
     //didi.didi();
-    string str1 = "6789";
-    string str2 = "5432";
-    string res = di.BigIntMultiply(str1, str2);
-    cout << res << endl;
+    //string str1 = "6789";
+    //string str2 = "5432";
+    //string res = di.BigIntMultiply(str1, str2);
+    //cout << res << endl;
+
+    di.test1();
+
     return 0;
 }

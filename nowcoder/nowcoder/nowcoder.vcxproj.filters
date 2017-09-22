@@ -77,5 +77,8 @@
     <ClCompile Include="ctrip.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="leet_code.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
