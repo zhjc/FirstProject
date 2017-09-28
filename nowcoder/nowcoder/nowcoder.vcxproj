@@ -162,6 +162,7 @@
     <ClCompile Include="stl_test.cpp" />
     <ClCompile Include="sword_to_offer.cpp" />
     <ClCompile Include="tecent.cpp" />
+    <ClCompile Include="toutiao.cpp" />
     <ClCompile Include="zhaoshang_bank.cpp" />
   </ItemGroup>
   <ItemGroup>

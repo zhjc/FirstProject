@@ -14,6 +14,7 @@ int test_multi_thread();
 int test_didichuxing();
 int test_stl();
 int test_leetcode1();
+int test_toutiao();
 
 int main(int argc, char* argv[])
 {
@@ -21,7 +22,7 @@ int main(int argc, char* argv[])
     // test_pointer();
     //test_offer();
 
-    //test_tecent();
+    test_tecent();
 
     //test_classic_algorithm();
 
@@ -34,7 +35,8 @@ int main(int argc, char* argv[])
     // test_netease_2018();
     // test_zhaoshang_bank();
 
-    test_didichuxing();
+    // test_didichuxing();
+    // test_toutiao();
 
     // test_multi_thread();
     //test_leetcode1();
