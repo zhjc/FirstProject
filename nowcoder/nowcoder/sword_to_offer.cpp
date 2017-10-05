@@ -473,6 +473,96 @@ public:
 
         return res;
     }
+
+    // 求逆数对
+    long long merge(int a[], int aux[], int l, int m, int r) {
+        int i, j;
+
+        long long count_ = 0;
+
+        for (i = m + 1; i > l; --i) {
+            aux[i - 1] = a[i - 1];
+        }
+
+        for (j = r; j > m; --j) {
+            aux[j] = a[j];
+        }
+
+        i = m;
+        j = r;
+
+        int k = r;
+        while (i>=l && j>m) {
+            if (aux[i]<aux[j]) {
+                a[k--] = aux[j--];
+            }
+            else {
+                a[k--] = aux[i--];
+                count_ += j - m;
+            }
+        }
+
+        while (i>=l) {
+            a[k--] = aux[i--];
+        }
+
+        while (j>m) {
+            a[k--] = aux[j--];
+        }
+
+        return count_;
+    }
+
+    long long merge_sort(int a[], int aux[], int l, int r) {
+        if (r <= l) {
+            return 0;
+        }
+
+        int m = (l + r) / 2;
+
+        long long num = 0;
+        num += merge_sort(a, aux, l, m);
+        num += merge_sort(a, aux, m + 1, r);
+
+        num += merge(a, aux, l, m, r);
+
+        return num;
+    }
+
+    int InversePairs(vector<int> data) {
+        if (data.empty()) {
+            return 0;
+        }
+        
+        int* cp = new int[data.size()];
+
+        long long count_ = merge_sort(&data[0], cp, 0, data.size() - 1);
+        cout << count_ << endl;
+        for (auto i : data) {
+            cout << i << " ";
+        }
+        cout << endl;
+
+        delete[] cp;
+
+        return count_ % 1000000007;
+    }
+
+    // 正则表达式
+    bool match(char* str, char* pattern)
+    {
+        bool flag = true;
+
+        return flag;
+    }
+
+    // 表示数值的字符串
+    bool isNumeric(char* string)
+    {
+        bool flag = true;
+
+        return flag;
+    }
 };
 
 int test_offer() {
@@ -547,7 +637,11 @@ int test_offer() {
     // 34
     //sol.GetUglyNumber_Solution(7);
 
-    sol.FirstNotRepeatingChar("aabDcdedjDejdss");
+    //sol.FirstNotRepeatingChar("aabDcdedjDejdss");
+
+    //sol.InversePairs(vector<int>({ 364,637,341,406,747,995,234,971,571,219,993,407,416,366,315,301,601,650,418,355,460,505,360,965,516,648,727,667,465,849,455,181,486,149,588,233,144,174,557,67,746,550,474,162,268,142,463,221,882,576,604,739,288,569,256,936,275,401,497,82,935,983,583,523,697,478,147,795,380,973,958,115,773,870,259,655,446,863,735,784,3,671,433,630,425,930,64,266,235,187,284,665,874,80,45,848,38,811,267,575 }));
+    //sol.InversePairs(vector<int>({ 1,2,3,4,5,6,7,0 }));
+    //sol.InversePairs(vector<int>({ 7,5,6,4 }));
 
     return 0;
 }
