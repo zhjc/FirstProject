@@ -53,10 +53,43 @@ int test_dijkstra() {
     return 0;
 }
 
+int test_str_func() {
+    char s[] = "ab-cd : ef gh;jksh:z";
+    char* delim = "-: ";
+    char* p;
+    printf("%s ", strtok(s, delim));
+    while (p = strtok(NULL, delim)) {
+        printf("%s ", p);
+    }
+    printf("\n");
+    return 0;
+}
+
+int test_string()
+{
+    string str = "p edge 125 736";
+
+    string str_out;
+    char ch_var[1024];
+    char ch_out[1024];
+    char ch;
+    int node_num, edge_num;
+
+    sscanf(str.c_str(), "%c %s %d %d", &ch, ch_var, &node_num, &edge_num);
+
+    sprintf(ch_out, "%c %s %d %d, xixi", ch ,ch_var, node_num, edge_num);
+
+    return 0;
+}
+
 int main(int argc, char* argv[]) {
     //test_TEA();
 
-    test_dijkstra();
+    //test_dijkstra();
+
+    //test_str_func();
+
+    test_string();
 
     return 0;
 }
